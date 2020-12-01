@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { TableStore } from './store/table.store';
+import { Provider } from 'mobx-react';
+
+const tableStore: TableStore = new TableStore();
+
+const store = {
+    tableStore
+};
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider {...store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
